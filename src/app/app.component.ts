@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {MatTableModule} from '@angular/material/table';
+import { Contact } from './Contact';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,41 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ContactsApp';
+  counterVar: false;
+  
+  appDescription = 'This is a contact book style app. Thats shows the list of people and has other cool features';
+
+  imageIcon = "https://library.wwu.edu/files/Icon-Phone.png";
+
+  bestfriend = 'Arya Stark';
+
+
+  callingAlert(name: String){
+    alert("Now Calling " + name);
+  }
+  
+  people: Contact[] = [
+    {
+    name: 'Jon Snow',
+    phoneNumber: 31078456732,
+    email: 'bravesnow@gmail.com',
+    profession: 'Engineer',
+    birthday: new Date('February 9, 16')
+    },
+    {
+      name: 'Arya Stark',
+      phoneNumber: 31078456732,
+      email: 'littleassasin@gmail.com',
+      profession: 'Scientist',
+      birthday: new Date('October 25, 24')
+      },
+      {
+        name: 'Daenerys Targaryen',
+        phoneNumber: 8478920398,
+        email: 'dragonqueen@gmail.com',
+        profession: 'Princess',
+        birthday: new Date('January 5, 18')
+        },
+  ];
+
 }
