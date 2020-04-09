@@ -11,7 +11,7 @@ import { Contact } from './Contact';
 export class AppComponent {
   title = 'ContactsApp';
   counterVar: false;
-  
+  queryString = '';
   appDescription = 'This is a contact book style app. Thats shows the list of people and has other cool features';
 
   imageIcon = "https://library.wwu.edu/files/Icon-Phone.png";
