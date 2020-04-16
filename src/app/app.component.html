@@ -1,6 +1,5 @@
-<div class="toolbar" role="banner">
-  <img width="40" alt="Angular Logo"
-    [src]="imageIcon" />
+<div class="toolbar" role="banner" myColorPicker={{toolbarColor}}>
+  <img width="40" alt="Angular Logo"[src]="imageIcon" />
   <span>Welcome</span>
   <div class="spacer"></div>
   <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
@@ -11,13 +10,13 @@
         fill="#fff" />
     </svg>
   </a>
+
 </div>
 
-
 <div class="content" role="main">
-
+  
   <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
+  <div class="card highlight-card card-small" myColorPicker={{toolbarColor}}>
 
     <svg id="rocket" alt="Rocket Ship" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678"
       viewBox="0 0 101.678 101.678">
@@ -34,7 +33,6 @@
         </g>
       </g>
     </svg>
-
     <span>{{ title }} app is running!</span>
 
     <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632"
@@ -45,10 +43,25 @@
     </svg>
   </div>
 
-  <h2>Contacts Table</h2>
+
+<div>
+<label for="color">Choose theme color:</label>
+
+<select class="form-control" (click)="colorSelect(colorChosen)" [(ngModel)]="toolbarColor">
+  <option *ngFor="let color of themeColors" value="{{color}}">{{color}}</option>
+</select>
+
+</div>
+
+
+<div>
+  <nav>
+    <a routerLink="/forms" routerLinkActive="active">Forms</a>
+    <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+  </nav>
+</div>
   
   <h3 [innerHTML]="appDescription"></h3>
-
 
   <div *ngIf="people.length > 1; else blankOption">
     <h3> You have {{people.length}} contacts in your app </h3>
@@ -59,13 +72,13 @@
       <h3> You do not have anyone in your app yet</h3>
     </div>
   </ng-template>
-  <br>
 
-    <br>
 
+  <h2>Contacts Table</h2>
   <div>
 
   <input type="text" class="form-control" placeholder="Enter Search String..." [(ngModel)]="queryString">
+  <br>
     <table>
       <tr>
         <th>Call</th>
@@ -77,7 +90,7 @@
       </tr>
       <tr  *ngFor="let person of people | filter : queryString">
         <button (click)="callingAlert(person.name)">Call {{person.name}}</button>
-        <td>{{person.name}}</td>
+        <td><a routerLink="/details:Array.IndexOf(people, search)" routerLinkActive="active">{{person.name}}</a></td>
         <td>{{person.phoneNumber}}</td>
         <td>{{person.email}}</td>
         <td>{{person.profession}}</td>
@@ -87,7 +100,6 @@
   </div>
 
   <br>
-
 
   <div [ngSwitch]="bestfriend">
     <h3 *ngSwitchCase="'Arya Stark'">Your best friend is Arya Stark</h3>
@@ -108,4 +120,5 @@
   </svg>
 
 </div>
+
 <router-outlet></router-outlet>
