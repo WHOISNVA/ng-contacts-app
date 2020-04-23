@@ -1,1 +1,25 @@
-<p>details works!</p>
+
+<h2 class="text-center">Contacts Table</h2>
+  <div>
+
+  <input type="text" class="form-control" placeholder="Enter Search String..." [(ngModel)]="queryString">
+  <br>
+    <table>
+      <tr>
+        <th>Call</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Profession</th>
+        <th>Birthday</th>
+      </tr>
+      <tr  *ngFor="let person of people | filter : queryString">
+        <button (click)="callingAlert(person.name)">Call {{person.name}}</button>
+        <td><a routerLink="/details:Array.IndexOf(people, search)" routerLinkActive="active">{{person.name}}</a></td>
+        <td>{{person.phoneNumber}}</td>
+        <td>{{person.email}}</td>
+        <td>{{person.profession}}</td>
+        <td>{{person.birthday | date}}</td>
+      </tr>
+    </table>
+  </div>

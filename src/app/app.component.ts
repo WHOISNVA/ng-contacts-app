@@ -12,7 +12,6 @@ import { AddDataService } from './add-data.service';
 export class AppComponent implements OnInit{
   title = 'ContactsApp';
   counterVar: false;
-  queryString = '';
   toolbarColor: String;
   imageIcon = "https://library.wwu.edu/files/Icon-Phone.png";
   colorChosen;
@@ -26,10 +25,6 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     this.newGuy = this.addDataService.newContact();
     this.people.push(this.newGuy);
-  }
-
-  callingAlert(name: String){
-    alert("Now Calling " + name);
   }
 
   colorSelect(color: string){

@@ -5,9 +5,9 @@ import { DetailsComponent } from './details/details.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/contacts', pathMatch: 'full' },
+  {path: '', redirectTo: '/details', pathMatch: 'full' },
   {path:'forms', component: FormComponent},
-  {path:'details/:id', component: DetailsComponent},];
+  {path:'details', component: DetailsComponent},];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

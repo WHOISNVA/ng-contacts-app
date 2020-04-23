@@ -1,5 +1,5 @@
 <div class="toolbar" role="banner" myColorPicker={{toolbarColor}}>
-  
+
   <img width="40" alt="Angular Logo"[src]="imageIcon" />
   <span>Welcome</span>
   <div class="spacer"></div>
@@ -57,16 +57,28 @@
 
 <div>
   <nav>
+    <a routerLink="/details" routerLinkActive="active">List</a>
     <a routerLink="/forms" routerLinkActive="active">Forms</a>
-    <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
   </nav>
 </div>
   
-  <h3 [innerHTML]="appDescription"></h3>
-
+  <!-- <h3 [innerHTML]="appDescription"></h3> -->
+<br>
   <div *ngIf="people.length > 1; else blankOption">
     <h3> You have {{people.length}} contacts in your app </h3>
   </div>
+
+  <!-- <input [(ngModel)]="bestfriend">
+
+  <div [ngSwitch]="bestfriend">
+    <h3 *ngSwitchCase="'Arya Stark'">Your best friend is Arya Stark</h3>
+    <h3 *ngSwitchCase="'Jon Snow'">Your best friend is Jon Snow</h3>
+    <h3 *ngSwitchCase="'Daenerys Targaryen'">Your best friend is Daenerys Targaryen</h3>
+    <h3 *ngSwitchDefault> You do not have any bestfriends in the list</h3>
+  </div> -->
+
+
+<router-outlet></router-outlet>
 
   <ng-template #blankOption>
     <div>
@@ -74,44 +86,7 @@
     </div>
   </ng-template>
 
-
-  <h2>Contacts Table</h2>
-  <div>
-
-  <input type="text" class="form-control" placeholder="Enter Search String..." [(ngModel)]="queryString">
   <br>
-    <table>
-      <tr>
-        <th>Call</th>
-        <th>Name</th>
-        <th>Phone Number</th>
-        <th>Email</th>
-        <th>Profession</th>
-        <th>Birthday</th>
-      </tr>
-      <tr  *ngFor="let person of people | filter : queryString">
-        <button (click)="callingAlert(person.name)">Call {{person.name}}</button>
-        <td><a routerLink="/details:Array.IndexOf(people, search)" routerLinkActive="active">{{person.name}}</a></td>
-        <td>{{person.phoneNumber}}</td>
-        <td>{{person.email}}</td>
-        <td>{{person.profession}}</td>
-        <td>{{person.birthday | date}}</td>
-      </tr>
-    </table>
-  </div>
-
-  <br>
-
-  <div [ngSwitch]="bestfriend">
-    <h3 *ngSwitchCase="'Arya Stark'">Your best friend is Arya Stark</h3>
-    <h3 *ngSwitchCase="'Jon Snow'">Your best friend is Jon Snow</h3>
-    <h3 *ngSwitchCase="'Daenerys Targaryen'">Your best friend is Daenerys Targaryen</h3>
-    <h3 *ngSwitchDefault> You do not have any bestfriends in the list</h3>
-  </div>
-
-<input [(ngModel)]="bestfriend">
-
-  
 
   <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
     viewBox="0 0 2611.084 485.677">
@@ -121,5 +96,3 @@
   </svg>
 
 </div>
-
-<router-outlet></router-outlet>

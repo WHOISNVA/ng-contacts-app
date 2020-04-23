@@ -1,1 +1,63 @@
-<h3>form works!</h3>
+
+<div class="container">
+
+<div class="container">
+<h2>Template Form</h2>
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" #nameRef="ngModel" id="inputName" required placeholder="Name" name="name" ngModel>
+      <div [hidden]="nameRef.valid || nameRef.pristine" class="alert alert-danger">
+          Please add a name
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Phone Number</label>
+      <input type="text" class="form-control" id="inputNumber" placeholder="Phone Number" name="number" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Email</label>
+      <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Profession</label>
+      <input type="text" class="form-control" id="inputProfession" placeholder="Profession" name="profession" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Birthday</label>
+      <input type="text" class="form-control" id="inputBirthday" placeholder="Birthday" name="birthday" ngModel>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<br>
+
+<div class="container">
+  <h2>Model Driven Form</h2>
+  <form [formGroup]="modelForm" (ngSubmit)="onModelSubmit()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input type="text" class="form-control" required placeholder="Name" formControlName="name">
+        
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Phone Number</label>
+        <input type="text" class="form-control" placeholder="Phone Number" formControlName="number">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Email</label>
+        <input type="text" class="form-control"  placeholder="Email" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Profession</label>
+        <input type="text" class="form-control"  placeholder="Profession" formControlName="profession">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Birthday</label>
+        <input type="text" class="form-control"  placeholder="Birthday" formControlName="birthday">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+</div>
