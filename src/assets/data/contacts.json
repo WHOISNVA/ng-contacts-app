@@ -1,0 +1,21 @@
+[
+    { "name": "Kobe Bryant", 
+        "phoneNumber": 31077456732, 
+        "email": "kblakers@gmail.com", 
+        "profession": "Basketball Player", 
+        "birthday": "August 23, 1978" 
+    },
+    { "name": "Lebron James", 
+        "phoneNumber": 3103782720, 
+        "email": "ljlakers@gmail.com", 
+        "profession": "Basketball Player", 
+        "birthday": "December 30, 1984" 
+    },
+    { "name": "Michael Jordan", 
+        "phoneNumber": 77457386732, 
+        "email": "mjbulls@gmail.com", 
+        "profession": "Basketball Player", 
+        "birthday": "February 17, 1963" 
+    }
+]
+   

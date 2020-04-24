@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../Contact';
 import { AddDataService } from '../add-data.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-details',
@@ -11,13 +12,19 @@ export class DetailsComponent implements OnInit {
   queryString = '';
   newGuy;
 
-  constructor(private addDataService: AddDataService) { }
+  constructor(private addDataService: AddDataService, private _data: DataService) { }
 
   ngOnInit(): void {
     this.newGuy = this.addDataService.newContact();
     this.people.push(this.newGuy);
+    
+    this._data.getContacts().subscribe(data => this.addAsyncData(data));
   }
   
+  addAsyncData(result){
+    this.people = [...this.people, ...result];
+}
+
   callingAlert(name: String){
     alert("Now Calling " + name);
   }

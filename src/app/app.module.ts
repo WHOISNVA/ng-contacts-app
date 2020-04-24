@@ -6,6 +6,9 @@ import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms'
 import {AddDataService} from './add-data.service'
 import { AppRoutingModule } from './app-routing.module';
+
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { FilterPipe } from './filter.pipe';
 import { ColorPickerDirective } from './color-picker.directive';
@@ -27,7 +30,8 @@ import { DetailsComponent } from './details/details.component';
     BrowserAnimationsModule,
     MatTableModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [AddDataService],
   bootstrap: [AppComponent]

@@ -36,9 +36,11 @@
   <h2>Model Driven Form</h2>
   <form [formGroup]="modelForm" (ngSubmit)="onModelSubmit()">
       <div class="form-group">
-        <label for="exampleInputEmail1">Name</label>
-        <input type="text" class="form-control" required placeholder="Name" formControlName="name">
-        
+        <label for="exampleInputName">Name</label>
+        <input type="text" class="form-control" placeholder="Name" formControlName="name">
+        <div *ngIf="modelForm.controls['name'].hasError('required')" class="alert alert-danger">
+          Please add name field
+      </div>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Phone Number</label>
